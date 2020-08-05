@@ -4,3 +4,7 @@ myvenv/
 *.pyc
 
 db.sqlite3
+
+migrations/
+coverpage.html
+openpage.html
