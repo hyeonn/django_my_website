@@ -3,7 +3,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>이현이 홈페이지</title>
+    <title>이현 홈페이지</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href={% static 'myweb/bootstrap/mystyle.css' %} media="screen">
     <link rel="stylesheet" href={% static 'myweb/bootstrap/css/custom.min.css' %}>
@@ -75,17 +75,16 @@
       <th scope="col">No.</th>
       <th scope="col">name</th>
       <th scope="col">category</th>
-      <th scope="col">description</th>
     </tr>
   </thead>
   <tbody>
+  {% for p in boards %}
     <tr>
-        {% for
-      <th scope="row">Default</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+      <th scope="row">{{p.id}}</th>
+      <td>{{p.name}}</td>
+      <td>{{p.category}}</td>
     </tr>
+  {% endfor %}
 
   </tbody>
 </table>

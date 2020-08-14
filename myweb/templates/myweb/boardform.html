@@ -3,7 +3,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>이현이 홈페이지</title>
+    <title>이현 홈페이지</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href={% static 'myweb/bootstrap/mystyle.css' %} media="screen">
     <link rel="stylesheet" href={% static 'myweb/bootstrap/css/custom.min.css' %}>
@@ -37,14 +37,33 @@
 
 
         </div>
-
+          <form class="form-inline my-2 my-lg-0">
 
       <button class="btn btn-outline-light btn-sm my-2 my-sm-0" type="submit">Visitor's book</button>
-
+    </form>
       </div>
 
     </div>
 
+
+    <div class="container" >
+        <div class="container" >
+            <div class="container" >
+                <div class="container" >
+                    <h3>new board</h3>
+</br></br>
+      <form method='POST' class="board-form">
+          {%csrf_token%}
+          <table>
+          {{form.as_table}}
+          </table>
+          <button type="submit" class="btn btn-secondary disabled"style="float: right;">Create</button>
+      </form>
+        </div>
+            </div></div>
+
+
+    </div>
 
 
 

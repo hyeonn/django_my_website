@@ -4,7 +4,7 @@ from  . models import Post
 from django.views.generic import ListView
 from django.http import HttpResponse
 
-from  .forms import BoardForm
+from  .forms import BoardForm,PostForm
 
 class PostList(ListView):
     model = Post
@@ -39,4 +39,19 @@ def newBoard(request):
             request,
             'myweb/boardform.html',
             {"form":form}
+        )
+
+def newPost(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return HttpResponse("Saved OK")
+    else:
+        form = PostForm()
+        return render(
+            request,
+            'myweb/postform.html',
+            {"form": form}
         )
