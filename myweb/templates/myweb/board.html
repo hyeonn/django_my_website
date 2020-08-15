@@ -1,49 +1,6 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>이현 홈페이지</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href={% static 'myweb/bootstrap/mystyle.css' %} media="screen">
-    <link rel="stylesheet" href={% static 'myweb/bootstrap/css/custom.min.css' %}>
+{% extends 'base.html' %}
 
-</head>
-<body>
-    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <div class="container">
-        <a href="../" class="navbar-brand">HYEONN</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
-
-            <li class="nav-item">
-              <a class="nav-link" >About Me</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link">Ability</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">Portfolio</a>
-            </li>
-              <li class="nav-item">
-              <a href="http://127.0.0.1:8000/myweb/board/" class="nav-link">Boards</a>
-            </li>
-
-
-          </ul>
-
-
-        </div>
-          <form class="form-inline my-2 my-lg-0">
-
-      <button class="btn btn-outline-light btn-sm my-2 my-sm-0" type="submit">Visitor's book</button>
-    </form>
-      </div>
-
-    </div>
+{% block content %}
 
 
     <div class="container" >
@@ -91,11 +48,4 @@
 
     </div>
 
-
-
-    <script src="{% static 'myweb/bootstrap/js/jquery.min.js' %}"></script>
-    <script src="{% static 'myweb/bootstrap/js/popper.min.js' %}"></script>
-    <script src="{% static 'myweb/bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'myweb/bootstrap/js/custom.js' %}"></script>
-</body>
-</html>
+  {% endblock %}
