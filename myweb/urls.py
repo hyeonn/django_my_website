@@ -21,4 +21,5 @@ urlpatterns = [
     path('board/', views.board),
     path('board/new', views.newBoard),
     path('post/new', views.newPost),
+    #
 ]

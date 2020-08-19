@@ -14,7 +14,7 @@ class PostList(ListView):
 def index(request):
     return  render(
         request,
-        'myweb/main.html'
+        'myweb/contact.html'
     )
 
 def board(request):
