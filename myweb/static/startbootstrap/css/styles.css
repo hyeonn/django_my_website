@@ -160,7 +160,7 @@ sup {
 }
 
 a {
-  color: #64a19d;
+  color: #F3969A;
   text-decoration: none;
   background-color: transparent;
 }
@@ -214,7 +214,7 @@ table {
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  color: #6c757d;
+  color: #F3969A ;
   text-align: left;
   caption-side: bottom;
 }
@@ -467,7 +467,7 @@ mark,
 .blockquote-footer {
   display: block;
   font-size: 80%;
-  color: #6c757d;
+  color: #F3969A ;
 }
 .blockquote-footer::before {
   content: "— ";
@@ -2491,8 +2491,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #64a19d;
-  border-color: #64a19d;
+  background-color: #F3969A !important;
+  border-color: #F3969A !important;
 }
 .btn-primary:hover {
   color: #fff;
@@ -2507,8 +2507,8 @@ fieldset:disabled a.btn {
 }
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #64a19d;
-  border-color: #64a19d;
+  background-color: #F3969A !important;
+  border-color: #F3969A !important;
 }
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
@@ -2521,8 +2521,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #F3969A !important;
+  border-color: #F3969A !important;
 }
 .btn-secondary:hover {
   color: #fff;
@@ -10145,8 +10145,8 @@ body {
 #mainNav .navbar-toggler {
   font-size: 80%;
   padding: 0.75rem;
-  color: #64a19d;
-  border: 1px solid #64a19d;
+  color: #F3969A !important;
+  border: 1px solid #F3969A !important;
 }
 #mainNav .navbar-toggler:focus {
   outline: none;
