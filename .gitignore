@@ -8,3 +8,4 @@ db.sqlite3
 migrations/
 coverpage.html
 openpage.html
+/myweb/static/startbootstrap/css/styless.css

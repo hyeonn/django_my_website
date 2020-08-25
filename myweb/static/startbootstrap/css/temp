@@ -2496,8 +2496,8 @@ fieldset:disabled a.btn {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #D9868B;
-  border-color: #B36F72;
+  background-color: #548b87;
+  border-color: #4f837f;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -10200,15 +10200,15 @@ body {
     border-bottom: 0.25rem solid transparent;
   }
   #mainNav.navbar-shrink .nav-link:hover {
-    color: #f3969a;
+    color: #64a19d;
   }
   #mainNav.navbar-shrink .nav-link:active {
-    color: #B36F72;
+    color: #467370;
   }
   #mainNav.navbar-shrink .nav-link.active {
-    color: #f3969a;
+    color: #64a19d;
     outline: none;
-    border-bottom: 0.25rem solid #f3969a;
+    border-bottom: 0.25rem solid #64a19d;
   }
 }
 
@@ -10287,7 +10287,7 @@ body {
 @media (min-width: 992px) {
   .projects-section .featured-text {
     padding: 0 0 0 2rem;
-    border-left: 0.5rem solid #F3969A;
+    border-left: 0.5rem solid #64a19d;
   }
 }
 .projects-section .project-text {
@@ -10299,7 +10299,7 @@ body {
     padding: 5rem;
   }
   .projects-section .project-text hr {
-    border-color: #F3969A;
+    border-color: #64a19d;
     border-width: 0.25rem;
     width: 30%;
   }
@@ -10307,7 +10307,7 @@ body {
 
 .signup-section {
   padding: 10rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("../assets/img/bg3.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("../assets/img/bg-signup.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
