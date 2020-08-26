@@ -24,7 +24,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #64a19d;
+  --primary: #f3969a;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -2760,13 +2760,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #64a19d;
-  border-color: #64a19d;
+  color: #f3969a;
+  border-color: #f3969a !important;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #64a19d;
-  border-color: #64a19d;
+  background-color: #f3969a;
+  border-color: #f3969a;
 }
 .btn-outline-primary:focus, .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(100, 161, 157, 0.5);
@@ -6209,13 +6209,13 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #64a19d !important;
+  background-color: #f3969a !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #4f837f !important;
+  background-color: #D9868B !important;
 }
 
 .bg-secondary {
@@ -6279,7 +6279,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #5e8ca6a8 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10213,6 +10213,17 @@ body {
 }
 
 .btn {
+  //box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  //border: 0;
+}
+
+
+.btn-main {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   padding: 1.25rem 2rem;
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10221,6 +10232,7 @@ body {
   letter-spacing: 0.15rem;
   border: 0;
 }
+
 
 .masthead {
   position: relative;
@@ -10239,7 +10251,7 @@ body {
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), #f27e84a3);
+  background:linear-gradient(#f3969a, rgb(255 255 255 / 0.5)) ;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;

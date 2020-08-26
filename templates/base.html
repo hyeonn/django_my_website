@@ -6,12 +6,14 @@
     <title>이현 홈페이지</title>
     <link rel="shortcut icon" type="image/x-icon" href={% static 'startbootstrap/assets/img/favicon.ico' %} />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href={% static 'myweb/bootstrap/mystyle.css' %} media="screen">
+    <link href={% static 'startbootstrap/css/styles.css' %} rel="stylesheet" />
     <link rel="stylesheet" href={% static 'myweb/bootstrap/css/custom.min.css' %}>
+    <!--<link rel="stylesheet" href={% static 'myweb/bootstrap/mystyle.css' %} media="screen">-->
+
 
 </head>
 <body>
-    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
       <div class="container">
         <a href="../../" class="navbar-brand">HYEONN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,9 +33,7 @@
 
 
         </div>
-          <form class="form-inline my-2 my-lg-0">
-
-      <button class="btn btn-outline-light btn-sm my-2 my-sm-0" type="submit">Visitor's book</button>
+      <button class="btn btn-outline-light btn-sm my-2 my-sm-0" style="padding: 0.7rem 1.1rem !important; letter-spacing: 0.15rem !important; text-transform: capitalize; border: 1 !important;" type="submit">Visitor's book</button>
 
       </div>
 
