@@ -2763,14 +2763,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #78C2AD;
-  border-color: #78C2AD;
+  background-color: #5e8ca6e0;
+  border-color:  #5e8ca6e0;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #5eb69d;
-  border-color: #55b298;
+  background-color: #5e8ca6ed;
+  border-color: #5e8ca6ed;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -11025,6 +11025,8 @@ legend {
 .alert-light .alert-link {
   color: #888;
 }
+
+
 
 .badge {
   color: #fff;

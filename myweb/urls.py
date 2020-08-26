@@ -17,8 +17,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.index),
-    path('board/', views.board),
+    path('', views.board),
+    #path('board/', views.board),
     path('board/new', views.newBoard),
     path('post/new', views.newPost),
 

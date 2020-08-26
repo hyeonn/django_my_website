@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path('', views.main),
-    path('portfolio/', views.portfolio),
+    path('portfolio/', views.PortfolioPost.as_view()),
     path('blog/', include('myweb.urls')),
     path('admin/', admin.site.urls),
 ]

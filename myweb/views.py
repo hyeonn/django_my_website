@@ -14,14 +14,14 @@ class PostList(ListView):
 def index(request):
     return  render(
         request,
-        'myweb/index.html'
+        'myweb/blog.html'
     )
 
 def board(request):
-    boards = Board.objects.all()
+    boards = Board.objects.exclude(name="Portfolio");
     return  render(
         request,
-        'myweb/board.html',
+        'myweb/blog.html',
         {'boards': boards}
 
     )
