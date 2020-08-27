@@ -13,8 +13,8 @@ class Post(models.Model):
     Board_id = models.ForeignKey(Board,null=False,on_delete=models.CASCADE,verbose_name="게시판")
     title = models.CharField(max_length=70,null=False,default="Untitled",verbose_name="게시물 제목")
     content = models.TextField(null=False,verbose_name="게시물 내용")
-    note = models.TextField(null=True,verbose_name="참조")
-    date = models.DateTimeField(null=False,default=now,verbose_name="게사물 작성일")
+    note = models.TextField(blank=True,null=True,verbose_name="참조")
+    date = models.DateTimeField(auto_now_add=True,verbose_name="게사물 작성일")
     delete = models.BooleanField(default=False,verbose_name="삭제여부")
     likes = models.IntegerField(default=0,verbose_name="공감")
     views = models.IntegerField(null=False,default=1,verbose_name="조회수")
@@ -23,7 +23,7 @@ class Post(models.Model):
         return '{}'.format(self.title)
 
 class Project(models.Model):
-    title = models.CharField(max_length=70,null=False,default="Untitled",verbose_name="프로젝트 제목")
+    title = models.CharField(max_length=70,null=False,default="프로젝트 이름을 적어주세요",verbose_name="프로젝트 제목")
     content = models.TextField(null=False,verbose_name="프로젝트 내용")
     note = models.TextField(null=True,blank=True,verbose_name="참조")
     date = models.DateTimeField(null=False,default=now,verbose_name="게사물 작성일")

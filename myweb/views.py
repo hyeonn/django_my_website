@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from  . models import Board
 from  . models import Post
-from django.views.generic import ListView
+from django.views.generic import ListView,CreateView
 from django.http import HttpResponse
 
 from  .forms import BoardForm,PostForm
@@ -43,17 +43,16 @@ def newBoard(request):
         )
 
 
-def boardFirst(request):
-    posts = Post.objects.filter(board_id=1);
-    boards = Board.objects.filter(id=1);
+class postlist(ListView):
+    #boards = Board.objects.filter(id=1);
 
-    return  render(
-        request,
-        'myweb/boardFirst.html',
-        #{'boardFirst': boards}
-        #{'postsFirst': posts}
+    model = Post
 
-    )
+    def get_queryset(self):
+        return (Post.objects.order_by('-id'))
+
+    #render(request, 'myweb/post_list.html', {'boards': boards}),
+
 
 def newPost(request):
     if request.method == 'POST':
@@ -69,3 +68,9 @@ def newPost(request):
             'myweb/postform.html',
             {"form": form}
         )
+
+class PostCreate(CreateView):
+    model = Post
+    fields = [
+        'Board_id', 'title' , 'content', 'note'
+    ]

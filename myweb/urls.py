@@ -19,8 +19,8 @@ from . import views
 urlpatterns = [
     path('', views.board),
     #path('board/', views.board),
-    path('boardFirst/', views.boardFirst),
+    path('board/', views.postlist.as_view()),
     path('board/new', views.newBoard),
-    path('post/new', views.newPost),
+    path('post/new', views.PostCreate.as_view()),
 
 ]

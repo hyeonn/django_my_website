@@ -2,8 +2,10 @@
 
 {% block content %}
  <div class="container" >
-            <h2>{{boardFirst.name}}</h2>
+            <h2>{{boards.name}}</h2>
             <br><br>
+            <button onclick="location.href='/blog/post/new'" style="float: right;" type="button" class="btn btn-outline-secondary "> new </button>
+            </br></br>
                 {% for p in object_list %}
                 <div class="jumbotron">
                       <h4 class="display-4" style="font-size: 3.2rem; font-weight: 400;">{{ p.title }}</h4>
