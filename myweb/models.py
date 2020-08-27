@@ -52,9 +52,9 @@ class Comment(models.Model):
     delete = models.BooleanField(default=False,verbose_name="삭제여부")
     password = models.IntegerField(null=True,verbose_name="비밀번호")
     date = models.DateTimeField(null=False,default=now,verbose_name="작성일")
-    Comment_num = models.ForeignKey('self',null=True, on_delete=models.CASCADE,verbose_name="댓글 답글 대상")
+    #Comment_num = models.ForeignKey('self', null=True, on_delete=models.CASCADE,verbose_name="댓글 답글 대상")
     # 댓글 답글일경우 어떤 댓글인지 대상을 저장
-    VB_num = models.ForeignKey(VisitorsBook,null=True, on_delete=models.CASCADE,verbose_name="방명록 답글 대상")
+    #VB_num = models.ForeignKey(VisitorsBook,null=True, on_delete=models.CASCADE,verbose_name="방명록 답글 대상")
     # 방명록 답글일경우 어떤 방명록인지 대상을 저장
 
 """

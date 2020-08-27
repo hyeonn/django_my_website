@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from  . models import Board
 from  . models import Post
-from django.views.generic import ListView,CreateView
+from django.views.generic import ListView,CreateView,DetailView
 from django.http import HttpResponse
 
 from  .forms import BoardForm,PostForm
@@ -9,6 +9,8 @@ from  .forms import BoardForm,PostForm
 class PostList(ListView):
     model = Post
 
+class PostDetail(DetailView):
+    model = Post
 # Create your views here.
 
 def index(request):
@@ -53,7 +55,16 @@ class postlist(ListView):
 
     #render(request, 'myweb/post_list.html', {'boards': boards}),
 
+class PostCreate(CreateView):
+    model = Post
+    fields = [
+        'Board_id', 'title' , 'content', 'note'
+    ]
 
+
+
+
+'''
 def newPost(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -68,6 +79,7 @@ def newPost(request):
             'myweb/postform.html',
             {"form": form}
         )
+'''
 
 class PostCreate(CreateView):
     model = Post

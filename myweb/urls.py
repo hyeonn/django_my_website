@@ -22,5 +22,6 @@ urlpatterns = [
     path('board/', views.postlist.as_view()),
     path('board/new', views.newBoard),
     path('post/new', views.PostCreate.as_view()),
+    path('board/<int:pk>/', views.PostDetail.as_view()),
 
 ]
