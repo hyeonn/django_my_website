@@ -26,6 +26,7 @@ def board(request):
 
     )
 
+
 def newBoard(request):
     if request.method == 'POST':
         form = BoardForm(request.POST)
@@ -40,6 +41,19 @@ def newBoard(request):
             'myweb/boardform.html',
             {"form":form}
         )
+
+
+def boardFirst(request):
+    posts = Post.objects.filter(board_id=1);
+    boards = Board.objects.filter(id=1);
+
+    return  render(
+        request,
+        'myweb/boardFirst.html',
+        #{'boardFirst': boards}
+        #{'postsFirst': posts}
+
+    )
 
 def newPost(request):
     if request.method == 'POST':

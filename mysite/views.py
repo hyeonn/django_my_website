@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
 from django.http import HttpResponse
-from myweb.models import Post
+from myweb.models import Project
 
 
 # Create your views here.
-class PortfolioPost(ListView):
-    model = Post
+class PortfolioProject(ListView):
+    model = Project
 
     def get_queryset(self):
-        return Post.objects.filter(Board_id=4).order_by('-id')
+        return Project.objects.order_by('-id')
 
 def main(request):
     return  render(
@@ -21,7 +21,7 @@ def main(request):
     posts = Post.objects.filter(Board_id=4)
     return  render(
         request,
-        'post_list.html',
+        'project_list.html',
         {
             'posts': posts
         }

@@ -22,6 +22,19 @@ class Post(models.Model):
     def __str__(self):
         return '{}'.format(self.title)
 
+class Project(models.Model):
+    title = models.CharField(max_length=70,null=False,default="Untitled",verbose_name="프로젝트 제목")
+    content = models.TextField(null=False,verbose_name="프로젝트 내용")
+    note = models.TextField(null=True,blank=True,verbose_name="참조")
+    date = models.DateTimeField(null=False,default=now,verbose_name="게사물 작성일")
+    projectStart = models.DateTimeField(null=False, default=now, verbose_name="프로젝트 시작일")
+    projectEnd = models.DateTimeField(null=False, default=now, verbose_name="프로젝트 종료일")
+    likes = models.IntegerField(default=0,verbose_name="공감")
+    views = models.IntegerField(null=False,default=1,verbose_name="조회수")
+
+    def __str__(self):
+        return '{}'.format(self.title)
+
 class VisitorsBook(models.Model):
     writer = models.CharField(max_length=30, null=False,verbose_name="방명록 작성자")
     writer_id = models.IntegerField(null=False,verbose_name="작성자 식별자")

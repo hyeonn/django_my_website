@@ -19,6 +19,7 @@ from . import views
 urlpatterns = [
     path('', views.board),
     #path('board/', views.board),
+    path('boardFirst/', views.boardFirst),
     path('board/new', views.newBoard),
     path('post/new', views.newPost),
 
