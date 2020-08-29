@@ -8,12 +8,12 @@
                     </br>
                     <h3>new Post</h3>
 </br></br>
-      <form method='POST' class="post-form">
+      <form method="POST" enctype="multipart/form-data">
           {%csrf_token%}
           <table>
           {{form.as_table}}
           </table>
-          <button type="submit" class="btn btn-secondary disabled"style="float: right;">Create</button>
+          <button type="submit" class="btn btn-secondary disabled"style="float: right;"href="../../board">Create</button>
           </br></br></br></br></br></br></br>
       </form>
 
