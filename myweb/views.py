@@ -4,6 +4,7 @@ from  . models import Post
 from django.views.generic import ListView,CreateView,DetailView
 from django.http import HttpResponse
 
+
 from  .forms import BoardForm,PostForm
 
 class PostList(ListView):
@@ -11,6 +12,7 @@ class PostList(ListView):
 
 class PostDetail(DetailView):
     model = Post
+
 # Create your views here.
 
 def index(request):
@@ -51,10 +53,28 @@ class postlist(ListView):
     model = Post
 
     def get_queryset(self):
-        return (Post.objects.order_by('-id'))
+        return (Post.objects.filter(Board_id=1).order_by('-id'))
 
     #render(request, 'myweb/post_list.html', {'boards': boards}),
 
+def newPost(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            #Post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(
+            request,
+            'myweb/post_form.html',
+            {"form": form}
+        )
+
+
+'''
 class PostCreate(CreateView):
     model = Post
     fields = [
@@ -62,9 +82,6 @@ class PostCreate(CreateView):
     ]
 
 
-
-
-'''
 def newPost(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -79,10 +96,11 @@ def newPost(request):
             'myweb/postform.html',
             {"form": form}
         )
-'''
+
 
 class PostCreate(CreateView):
     model = Post
     fields = [
         'Board_id', 'title' , 'content', 'note'
     ]
+'''

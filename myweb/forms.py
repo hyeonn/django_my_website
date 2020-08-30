@@ -10,4 +10,4 @@ class BoardForm(forms.ModelForm): # 모델 폼 정의
 class PostForm(forms.ModelForm): # 모델 폼 정의
 	class Meta:
 		model = Post
-		fields = ['title', 'content','note']
+		fields = ['Board_id','title', 'content','note']
