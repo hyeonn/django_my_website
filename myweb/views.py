@@ -53,7 +53,7 @@ class postlist(ListView):
     model = Post
 
     def get_queryset(self):
-        return (Post.objects.filter(Board_id=pk).order_by('-id'))
+        return (Post.objects.filter(Board_id=5).order_by('-id'))
 
     #render(request, 'myweb/post_list.html', {'boards': boards}),
 
