@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from  . models import Board
 from  . models import Post
 from  . models import Comment
+
 from django.views.generic import ListView,CreateView,DetailView
 from django.http import HttpResponse
 from  .forms import BoardForm,PostForm,CommentForm
@@ -18,6 +19,7 @@ def PostDetail(request,pk):
     comment_form = CommentForm()
     comments = Comment.objects.all()
     return render(request, 'myweb/post_detail.html', {'post': post,'comments': comments, 'comment_form': comment_form})
+
 
 
 # Create your views here.

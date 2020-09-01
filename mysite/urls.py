@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.main),
     path('portfolio/', views.PortfolioProject.as_view()),
+    path('portfolio/project/<int:pk>/', views.ProjectDetail),
     path('blog/', include('myweb.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),

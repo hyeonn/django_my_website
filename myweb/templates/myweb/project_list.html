@@ -10,9 +10,9 @@
                       <h4 class="display-4" style="font-size: 3.2rem; font-weight: 400;">{{ p.title }}</h4>
                       <p class="lead" style="text-align: right; font-size: 1rem; font-weight: 500; color: #5a5a5a">likes: {{ p.likes }} | views: {{p.views}} | {{ p.date }}</p>
                       <hr class="my-4">
-                      <p>{{ p.content }}</p>
+                      <p>{{ p.content | safe | truncatewords:120 }}</p>
                       <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Read More</a>
+                        <a class="btn btn-primary btn-lg" href="project/{{ p.id }}/" role="button">Read More</a>
                       </p>
                 </div>
                 {% endfor %}

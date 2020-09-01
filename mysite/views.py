@@ -16,6 +16,16 @@ def main(request):
         request,
         'startbootstrap/main.html'
     )
+def ProjectDetail(request,pk):
+    project = get_object_or_404(Project, pk=pk)
+    # comment_form = CommentForm(request.POST)
+    # comment_form.instance.pk = pk
+    # if comment_form.is_valid():
+    #     comment = comment_form.save()
+    # comment_form = CommentForm()
+    # comments = Comment.objects.all()
+    return render(request, 'myweb/project_detail.html', {'project': project})
+    # { 'comments': comments, 'comment_form': comment_form}
 
 '''def portfolio(request):
     posts = Post.objects.filter(Board_id=4)
