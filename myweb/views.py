@@ -1,18 +1,24 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from  . models import Board
 from  . models import Post
+from  . models import Comment
 from django.views.generic import ListView,CreateView,DetailView
 from django.http import HttpResponse
-from  .forms import BoardForm,PostForm
+from  .forms import BoardForm,PostForm,CommentForm
 
 
 
 
-class PostList(ListView):
-    model = Post
+def PostDetail(request,pk):
+    post = get_object_or_404(Post, pk=pk)
+    comment_form = CommentForm(request.POST)
+    comment_form.instance.pk = pk
+    if comment_form.is_valid():
+        comment = comment_form.save()
+    comment_form = CommentForm()
+    comments = Comment.objects.all()
+    return render(request, 'myweb/post_detail.html', {'post': post,'comments': comments, 'comment_form': comment_form})
 
-class PostDetail(DetailView):
-    model = Post
 
 # Create your views here.
 
@@ -60,8 +66,9 @@ def newBoard(request):
     #render(request, 'myweb/post_list.html', {'boards': boards}),'''
 
 def post_list(request,pk):
-    posts = Post.objects.filter(Board_id_id=pk).order_by('-id')
-    return render(request, 'myweb/post_list.html', {'posts': posts})
+    board = Board.objects.filter(id=pk)
+    posts = Post.objects.filter(Board_id=pk).order_by('-id')
+    return render(request, 'myweb/post_list.html', {'board':board,'posts': posts})
 
 
 

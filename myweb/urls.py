@@ -25,7 +25,7 @@ urlpatterns = [
     path('board/<int:pk>/', views.post_list),
     path('board/new', views.newBoard),
     path('post/new', views.newPost),
-    path('post/<int:pk>/', views.PostDetail.as_view(),name='post_detail'),
+    path('post/<int:pk>/', views.PostDetail,name='post_detail'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
 ]

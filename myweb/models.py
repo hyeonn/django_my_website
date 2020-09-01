@@ -12,7 +12,7 @@ class Board(models.Model):
         return '{}'.format(self.name)
 
 class Post(models.Model):
-    Board_id = models.ForeignKey(Board,null=False,on_delete=models.CASCADE,verbose_name="게시판")
+    Board = models.ForeignKey(Board,null=False,on_delete=models.CASCADE,verbose_name="게시판")
     title = models.CharField(max_length=70,null=False,default="Untitled",verbose_name="게시물 제목")
     content = RichTextUploadingField(verbose_name="게시물 내용")
     note = models.TextField(blank=True,null=True,verbose_name="참조")
@@ -39,16 +39,14 @@ class Project(models.Model):
 
 class VisitorsBook(models.Model):
     writer = models.CharField(max_length=30, null=False,verbose_name="방명록 작성자")
-    writer_id = models.IntegerField(null=False,verbose_name="작성자 식별자")
     content = models.TextField(null=False,verbose_name="방명록 내용")
     canSee = models.BooleanField(default=True,verbose_name="공개여부")
     password = models.IntegerField(null=True,verbose_name="비밀번호")
     date = models.DateTimeField(null=False, default=now,verbose_name="작성일")
 
 class Comment(models.Model):
-    Post_num = models.ForeignKey(Post,null=False,on_delete=models.CASCADE,verbose_name="게시물")
+    Post = models.ForeignKey(Post,null=False,on_delete=models.CASCADE,verbose_name="게시물")
     writer = models.CharField(max_length=30,null=False,verbose_name="댓글 작성자")
-    writer_id = models.IntegerField(null=False,verbose_name="작성자 식별자")
     content = models.TextField(null=False,verbose_name="댓글 내용")
     canSee = models.BooleanField(default=True,verbose_name="공개여부")
     delete = models.BooleanField(default=False,verbose_name="삭제여부")

@@ -10,10 +10,10 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">{{object.title}}</h1>
+        <h1 class="mt-4">{{post.title}}</h1>
 
         <!-- Date/Time -->
-        <p style="text-align: right; font-size: 1rem; font-weight: 500; color: #5a5a5a">{{object.date}}</p>
+        <p style="text-align: right; font-size: 1rem; font-weight: 500; color: #5a5a5a">{{post.date}}</p>
 
         <hr>
 
@@ -25,8 +25,9 @@
         <hr>-->
 
         <!-- Post Content -->
-        <p>{{object.content | safe}}</p>
+        <p>{{post.content | safe}}</p>
         <hr>
+
 
         <!-- Comments Form -->
         <div class="card my-4">
@@ -41,27 +42,32 @@
           </div>
         </div>
 
+
+        <div id=""comment-list>
+          {% for c in comments  %}
         <!-- Single Comment -->
         <div class="media mb-4">
           <div class="media-body">
-            <h5 class="mt-0">{{Comment.writer}}</h5>
-            {{Comment.writer}}
+            <h5 class="mt-0">{{c.writer}}</h5>
+            {{c.content}}
           </div>
         </div>
+        </div>
+        {% endfor %}
 
-        <!-- Comment with nested comments -->
-        <div class="media mb-4">
+<!--        &lt;!&ndash; Comment with nested comments &ndash;&gt;-->
+<!--        <div class="media mb-4">-->
 
-          <div class="media-body">
-            <h5 class="mt-0">{{Comment.writer}}</h5>
-            {{Comment.content}}
-            <div class="media mt-4">
+<!--          <div class="media-body">-->
+<!--            <h5 class="mt-0">{{Comment.writer}}</h5>-->
+<!--            {{Comment.content}}-->
+<!--            <div class="media mt-4">-->
 
-              <div class="media-body">
-                <h5 class="mt-0">{{Comment.writer}}</h5>
-                {{Comment.content}}
-              </div>
-            </div>
+<!--              <div class="media-body">-->
+<!--                <h5 class="mt-0">{{Comment.writer}}</h5>-->
+<!--                {{Comment.content}}-->
+<!--              </div>-->
+<!--            </div>-->
             <br><br><br><br>
 
 
