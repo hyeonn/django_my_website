@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.board),
     #path('board/', views.board),
-    path('board/<int:pk>/', views.postlist.as_view()),
+    path('board/<int:pk>/', views.post_list),
     path('board/new', views.newBoard),
     path('post/new', views.newPost),
     path('post/<int:pk>/', views.PostDetail.as_view(),name='post_detail'),

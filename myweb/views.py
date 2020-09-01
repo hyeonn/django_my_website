@@ -3,9 +3,10 @@ from  . models import Board
 from  . models import Post
 from django.views.generic import ListView,CreateView,DetailView
 from django.http import HttpResponse
-
-
 from  .forms import BoardForm,PostForm
+
+
+
 
 class PostList(ListView):
     model = Post
@@ -47,15 +48,23 @@ def newBoard(request):
         )
 
 
-class postlist(ListView):
-    #boards = Board.objects.filter(id=1);
+'''class postlist(ListView):
 
     model = Post
 
-    def get_queryset(self):
-        return (Post.objects.filter(Board_id=5).order_by('-id'))
+    # def get(self, request, pk):
+    #     Post_data = Post.objects.filter(Board_id=pk).values()
+    def get_queryset(self, boardnum):
+        return (Post.objects.filter(Board_id=boardnum).order_by('-id'))
 
-    #render(request, 'myweb/post_list.html', {'boards': boards}),
+    #render(request, 'myweb/post_list.html', {'boards': boards}),'''
+
+def post_list(request,pk):
+    posts = Post.objects.filter(Board_id_id=pk).order_by('-id')
+    return render(request, 'myweb/post_list.html', {'posts': posts})
+
+
+
 
 def newPost(request):
     if request.method == "POST":
