@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from  . models import Board
 from  . models import Post
 from  . models import Comment
+from django.db.models import Count
 
 from django.views.generic import ListView,CreateView,DetailView
 from django.http import HttpResponse
@@ -10,15 +11,20 @@ from  .forms import BoardForm,PostForm,CommentForm
 
 
 
+
 def PostDetail(request,pk):
     post = get_object_or_404(Post, pk=pk)
     Post.objects.filter(pk=pk).update(views=Post.objects.get(pk=pk).views + 1)
-    comment_form = CommentForm(request.POST)
-    comment_form.instance.pk = pk
-    if comment_form.is_valid():
-        comment = comment_form.save()
-    comment_form = CommentForm()
-    comments = Comment.objects.all()
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.Post = post
+            comment.save()
+            return redirect('post_detail',pk=post.pk)
+    else:
+        comment_form = CommentForm()
+        comments = Comment.objects.filter(Post_id=pk)
     return render(request, 'myweb/post_detail.html', {'post': post,'comments': comments, 'comment_form': comment_form})
 
 
@@ -32,7 +38,7 @@ def index(request):
     )
 
 def board(request):
-    boards = Board.objects.exclude(name="Portfolio");
+    boards = Board.objects.all()
     return  render(
         request,
         'myweb/blog.html',

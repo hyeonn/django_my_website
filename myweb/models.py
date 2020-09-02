@@ -7,6 +7,7 @@ class Board(models.Model):
     name = models.CharField(max_length=50,null=False,verbose_name="게시판 이름")
     description = models.TextField(null=True,verbose_name="게시판 설명")
     category = models.CharField(max_length=30,null=False,verbose_name="카테고리")
+    count = models.IntegerField(default=0, verbose_name="게시물 개수")
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -56,6 +57,14 @@ class Comment(models.Model):
     # 댓글 답글일경우 어떤 댓글인지 대상을 저장
     #VB_num = models.ForeignKey(VisitorsBook,null=True, on_delete=models.CASCADE,verbose_name="방명록 답글 대상")
     # 방명록 답글일경우 어떤 방명록인지 대상을 저장
+class ProjectComment(models.Model):
+    Project = models.ForeignKey(Project,null=False,on_delete=models.CASCADE,verbose_name="프로젝트")
+    writer = models.CharField(max_length=30,null=False,verbose_name="댓글 작성자")
+    content = models.TextField(null=False,verbose_name="댓글 내용")
+    canSee = models.BooleanField(default=True,verbose_name="공개여부")
+    delete = models.BooleanField(default=False,verbose_name="삭제여부")
+    password = models.IntegerField(null=True,verbose_name="비밀번호")
+    date = models.DateTimeField(null=False,default=now,verbose_name="작성일")
 
 """
 class Recomment(models.Model):

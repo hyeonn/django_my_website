@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <!-- Page Content -->
   <div class="container">
@@ -30,18 +30,40 @@
         <hr>
 
 
-        <!-- Comments Form -->
+
+         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
-            <form>
-              <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
+            <form action="{{ pcomment.get_absolute_url }}" method="POST">
+              {% csrf_token%}
+
+              {{pcomment_form | crispy}}
+
+<!--              <div class="form-group">-->
+<!--                <textarea class="form-control" rows="3"></textarea>-->
+<!--              </div>-->
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
+
+
+
+    <!-- Single Comment -->
+
+        <div id=""comment-list>
+          {% for c in pcomment  %}
+          <div class="card border-secondary mb-3" style="max-width: 50rem;">
+            <div class="card-header"style="font-size: 1rem; font-weight: 400;">
+              <strong>{{c.writer}}</strong>
+            </div>
+            <div class="card-body">
+              <p class="card-text" style="font-size: 1rem;" >{{c.content }}</p>
+              <p class="lead" style="text-align: right; font-size: 0.85rem; font-weight: 100;">{{c.date}}</p>
+            </div>
+          </div>
+          {% endfor %}
 
 <!--
         <div id=""comment-list>
