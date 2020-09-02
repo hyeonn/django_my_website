@@ -18,6 +18,7 @@ def main(request):
     )
 def ProjectDetail(request,pk):
     project = get_object_or_404(Project, pk=pk)
+    Project.objects.filter(pk=pk).update(views=Project.objects.get(pk=pk).views + 1)
     # comment_form = CommentForm(request.POST)
     # comment_form.instance.pk = pk
     # if comment_form.is_valid():

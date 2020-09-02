@@ -12,6 +12,7 @@ from  .forms import BoardForm,PostForm,CommentForm
 
 def PostDetail(request,pk):
     post = get_object_or_404(Post, pk=pk)
+    Post.objects.filter(pk=pk).update(views=Post.objects.get(pk=pk).views + 1)
     comment_form = CommentForm(request.POST)
     comment_form.instance.pk = pk
     if comment_form.is_valid():
