@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
+
 
  <div class="container" >
 <div class="container" >
 <div>
-    <h1 align="center">Blog</h1>
+<!--    <h1 align="center">Visitor's book</h1>-->
     <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
@@ -28,20 +29,40 @@
 <!--<br>-->
 
 
-<h2>Board</h2>
-    <ul class="list-group">
-        {% for p in boards %}
-          <li class="list-group-item d-flex justify-content-between align-items-center" style="padding: 0.8rem 1.25rem; font-weight: 500;" >
-              <a style="color:#666; display: block !important;" href="board/{{ p.id }}"><span style="color:#888;font-weight: 400;">[{{p.category}}]</span>  {{p.name}}</a>
-            <span class="badge badge-primary badge-pill" style="background-color: #78c2adf2;">{{p.count}}</span>
-          </li>
-        {% endfor %}
+<h1>Visitor's book</h1>
+<br><br>
 
   </li>
 </ul>
-    <br><br><br><br><br><br>
-</div>
 
+</div>
+    <div class="card my-4"style="max-width: 50rem;">
+          <h5 class="card-header">Leave a greeting:</h5>
+          <div class="card-body">
+            <form action="{{ comment.get_absolute_url }}" method="POST">
+              {% csrf_token%}
+
+              {{visitorsBook_form | crispy}}
+
+<!--              <div class="form-group">-->
+<!--                <textarea class="form-control" rows="3"></textarea>-->
+<!--              </div>-->
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+       <br><br><br>
+
+    {% for p in visitorsBooks %}
+    <div class="card bg-light mb-3" style="max-width: 50rem;">
+  <div class="card-header">{{ p.date }}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ p.writer }}</h5>
+    <p class="card-text">{{ p.content }}</p>
+  </div>
+</div>
+{% endfor %}
 
 </div>
  </div>

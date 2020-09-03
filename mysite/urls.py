@@ -27,6 +27,7 @@ urlpatterns = [
     path('blog/', include('myweb.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('visitorsBook/', views.VisitorsBooks),
 
 ]
 

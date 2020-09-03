@@ -1,5 +1,5 @@
 from django import forms
-from .models import Board,Post,Comment,ProjectComment
+from .models import Board,Post,Comment,ProjectComment,VisitorsBook
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
@@ -35,5 +35,10 @@ class CommentForm(forms.ModelForm):
 
 class ProjectCommentForm(forms.ModelForm):
     class Meta:
-        model = Comment
+        model = ProjectComment
         fields = ['writer','content','password']
+
+class VisitorsBookForm(forms.ModelForm):
+	class Meta:
+		model = VisitorsBook
+		fields = ['writer', 'content', 'password']
